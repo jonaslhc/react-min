@@ -1,16 +1,17 @@
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+const { React, ReactDom } = window;
 
-var Greeting = React.createClass({
-    render: function() {
-        return (
-            React.createElement('h1', null, 'Hello, world!')
-        ); 
-    }
-  });
+window.addEventListener('load', function() {
+  console.log(React);
+  ReactDOM.render(
+    React.createElement(Greeting, null),
+    document.body
+  );
+});
 
-  window.addEventListener('load', function() {
-    React.render(
-      React.createElement(Greeting, null),
-      document.body
-    );
-  });
+class Greeting extends React.Component {
+  render() {
+    return (
+        React.createElement('h1', null, 'Hello, world!')
+    );    
+  }
+}
